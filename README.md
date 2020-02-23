@@ -1,17 +1,17 @@
 # CloudInsurance
 A spring based microservice application for claiming insurance.
 
-###Technology
+## Technology
  * Java13
  * Spring Boot Framework
  * Maven
   
-###For Building and Running Application
+## For Building and Running Application
 mvn clean install
 
 mvn spring-boot:run
 
-###For Running Application
+## For Running Application
 POST http://localhost:8080/cloudinsurance/claims/create (for creating claims) 
 ```
  {
@@ -30,7 +30,7 @@ POST http://localhost:8080/cloudinsurance/claims/create (for creating claims)
 	"dateOfOriginalFlight":"22-01-2020 06:07:59"
 }
 ```
-#####For Retrieving claim details
+### For Retrieving claim details
 * GET http://localhost:8080/cloudinsurance/claims/ 
 * GET http://localhost:8080/cloudinsurance/claims/claim/{claimId}
 * GET http://localhost:8080/cloudinsurance/claims/{emailId}
