@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
+import java.math.BigInteger;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -41,14 +42,13 @@ public class ClaimsDetailDAO {
         input.addValue("originalflightnumber", request.getOriginalFlightNumber());
         input.addValue("reasonofdelay", request.getReasonOfDelay());
         input.addValue("consequenceofdelay", request.getConsequenceOfDelay());
-        input.addValue("replacementflightno", request.getReplacementFlightDetail());
-
-        if (nonNull(request.getReplacementFlightDetail()) && nonNull(request.getReplacementFlightDetail().getDate())) {
-            input.addValue("replacementflightdate", convertToTimestamp(request.getReplacementFlightDetail().getDate()));
-        }
-
         input.addValue("originalflightdate", convertToTimestamp(request.getDateOfOriginalFlight()));
         input.addValue("delaytime", request.getDelayTime());
+
+        if (nonNull(request.getReplacementFlightDetail())) {
+            input.addValue("replacementflightno", request.getReplacementFlightDetail().getFlightNo());
+            input.addValue("replacementflightdate", convertToTimestamp(request.getReplacementFlightDetail().getDate()));
+        }
 
         return simpleJdbcInsert.executeAndReturnKey(input).longValue();
     }
@@ -78,6 +78,7 @@ public class ClaimsDetailDAO {
         @Override
         public ClaimDetail mapRow(ResultSet rs, int i) throws SQLException {
             return ClaimDetail.builder()
+                     .withId(new BigInteger(rs.getString("id")))
                     .withFirstName(rs.getString("firstname"))
                     .withLastName(rs.getString("lastname"))
                     .withEmailId(rs.getString("emailid"))
