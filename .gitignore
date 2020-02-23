@@ -1,16 +1,10 @@
 # Created by .ignore support plugin (hsz.mobi)
 .DS_Store
-.idea/CloudInsurance.iml
-.idea/encodings.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/workspace.xml
-CloudInsurance/.gitignore
 CloudInsurance/.mvn/
 CloudInsurance/mvnw
 CloudInsurance/mvnw.cmd
 
-.idea/libraries/
-CloudInsurance/pom.xml
+
+.idea
+.idea/*
 target/
-.idea/vcs.xml

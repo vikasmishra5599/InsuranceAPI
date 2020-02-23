@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+    <changeSet id="create-claim-details-table" author="vikasmishra">
+        <createTable tableName="claimdetails">
+            <column name="id" type="BIGSERIAL"/>
+            <column name="firstname" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="lastname" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="emailid" type="varchar(75)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="policynumber" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="originalflightnumber" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="originalflightdate" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="reasonofdelay" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="consequenceofdelay" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="replacementflightno" type="varchar(50)"/>
+            <column name="replacementflightdate" type="timestamp"/>
+            <column name="delaytime" type="varchar(30)"/>
+        </createTable>
+
+        <addPrimaryKey tableName="claimdetails" columnNames="id"/>
+
+        <rollback>
+            drop table claimdetails
+        </rollback>
+    </changeSet>
+
+    <changeSet id="add-indexing-on-id" author="vikasmishra">
+        <createIndex tableName="claimdetails" indexName="idx_id" unique="true">
+            <column name="id"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>

@@ -21,8 +21,7 @@ public class ClaimService {
     }
 
     public CreateClaimResponse createClaim(CreateClaimRequest createClaimRequest) {
-        long claimOrderNo = 0;
-        //      claimOrderNo= flightClaimsDetailDAO.createClaim(createClaimRequest);
+        long claimOrderNo= flightClaimsDetailDAO.createClaim(createClaimRequest);
         CreateClaimResponse claimResponse = buildCreateClaimResponse(claimOrderNo);
         return claimResponse;
     }
