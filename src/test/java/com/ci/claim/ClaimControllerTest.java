@@ -53,7 +53,7 @@ public class ClaimControllerTest {
         Mockito.when(mockService.createClaim(any()))
                 .thenReturn(createDummyServiceResponse(1212, null,null));
 
-        MvcResult mvcResult = this.mockMvc.perform(post("/cloudinsurance/claims/create")
+        MvcResult mvcResult = this.mockMvc.perform(post("/claims/create")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(dummyRequest()))
                 .andExpect(status().isOk())
@@ -72,7 +72,7 @@ public class ClaimControllerTest {
         Mockito.when(mockService.createClaim(any()))
                 .thenThrow(new ClaimRequestException(asList(new ErrorType(400, "bad request"))));
 
-        MvcResult mvcResult = this.mockMvc.perform(post("/cloudinsurance/claims/create")
+        MvcResult mvcResult = this.mockMvc.perform(post("/claims/create")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(dummyRequest()))
                 .andExpect(status().isOk())
@@ -93,7 +93,7 @@ public class ClaimControllerTest {
                         null,
                         asList(createDummyClaimDetail(BigInteger.TEN, "abcd@test.com"))));
 
-        MvcResult mvcResult = this.mockMvc.perform(get("/cloudinsurance/claims/")
+        MvcResult mvcResult = this.mockMvc.perform(get("/claims/")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andReturn();
@@ -113,7 +113,7 @@ public class ClaimControllerTest {
                         null,
                         asList(createDummyClaimDetail(new BigInteger("1234"), "abcd@test.com"))));
 
-        MvcResult mvcResult = this.mockMvc.perform(get("/cloudinsurance/claims/claim/1234")
+        MvcResult mvcResult = this.mockMvc.perform(get("/claims/claim/1234")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andReturn();
@@ -133,7 +133,7 @@ public class ClaimControllerTest {
                         null,
                         asList(createDummyClaimDetail(new BigInteger("1234"), "abcd@test.com"))));
 
-        MvcResult mvcResult = this.mockMvc.perform(get("/cloudinsurance/claims/abcd@test.com")
+        MvcResult mvcResult = this.mockMvc.perform(get("/claims/abcd@test.com")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andReturn();
