@@ -24,7 +24,7 @@ import static java.util.Arrays.asList;
 import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 
 @RestController
-@RequestMapping(path = "/cloudinsurance/claims")
+@RequestMapping(path = "/claims")
 public class ClaimController {
     private static final Logger LOG = LoggerFactory.getLogger(ClaimController.class);
 
