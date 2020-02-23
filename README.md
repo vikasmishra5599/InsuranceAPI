@@ -21,7 +21,7 @@ mvn clean install
 mvn spring-boot:run
 
 ### For Running Application
-POST http://localhost:8080/cloudinsurance/claims/create (for creating claims) 
+POST http://localhost:8331/cloudinsurance/claims/create (for creating claims) 
 For exapmle:
 ```
  {
