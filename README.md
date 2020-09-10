@@ -1,4 +1,4 @@
-# CloudInsurance
+# InsuranceAPI
 A spring based microservice application for claiming insurance.
 
 ### Technology
