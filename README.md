@@ -21,7 +21,7 @@ mvn clean install
 mvn spring-boot:run
 
 ### For Running Application
-POST http://localhost:8331/cloudinsurance/claims/create (for creating claims) 
+POST http://localhost:8331/insurance/claims/create (for creating claims) 
 For exapmle:
 ```
  {
@@ -41,6 +41,6 @@ For exapmle:
 }
 ```
 ##### For Retrieving claim details
-* GET http://localhost:8331/cloudinsurance/claims/ 
-* GET http://localhost:8331/cloudinsurance/claims/claim/{claimId}
-* GET http://localhost:8331/cloudinsurance/claims/{emailId}
+* GET http://localhost:8331/insurance/claims/ 
+* GET http://localhost:8331/insurance/claims/claim/{claimId}
+* GET http://localhost:8331/insurance/claims/{emailId}

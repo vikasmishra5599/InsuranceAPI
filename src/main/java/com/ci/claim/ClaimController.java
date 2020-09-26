@@ -79,7 +79,7 @@ public class ClaimController {
         claimResponse.setErrorType(asList(new ErrorType(500, "An unexpected error occurred while processing request")));
 
         CreateClaimResponse response = new CreateClaimResponse(claimResponse, StatusType.FAILED);
-        return ResponseEntity.ok(response);
+        return ResponseEntity.status(500).body(response);
     }
 }
 

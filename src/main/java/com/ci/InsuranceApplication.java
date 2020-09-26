@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CloudInsuranceApplication {
+public class InsuranceApplication {
     public static void main(String[] args) {
-        SpringApplication.run(CloudInsuranceApplication.class, args);
+        SpringApplication.run(InsuranceApplication.class, args);
     }
 
 }
