@@ -68,7 +68,7 @@ public class ClaimController {
         ClaimResponse claimResponse = new ClaimResponse();
         claimResponse.setErrorType(exception.getErrorTypes());
         CreateClaimResponse response = new CreateClaimResponse(claimResponse, StatusType.FAILED);
-        return ResponseEntity.ok(response);
+        return ResponseEntity.status(400).body(response);
     }
 
     @ExceptionHandler({ClaimException.class, Exception.class})
